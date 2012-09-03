@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>PortableFCSLib</id>
+    <version>1.0.0</version>
+    <authors>Oliver Sturm</authors>
+    <owners>Ralph Möritz</owners>
+    <projectUrl>https://github.com/ralph-moeritz/PortableFCSLib</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Fork of Oliver Sturm's original FCSLib</description>
+    <releaseNotes />
+    <copyright>Copyright 2011 Oliver Sturm</copyright>
+    <tags>functional FP C# .NET</tags>
+  </metadata>
+</package>

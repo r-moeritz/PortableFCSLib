@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -52,6 +52,16 @@
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>rd /s /q "$(TargetDir)nuget"
+del /f /q "$(TargetDir)*.nupkg"</PreBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PostBuildEvent>mkdir "$(TargetDir)nuget\lib"
+copy "$(SolutionDir)*.nuspec" "$(TargetDir)nuget"
+copy "$(TargetPath)" "$(TargetDir)nuget\lib"
+"$(SolutionDir).nuget\nuget.exe" pack "$(TargetDir)nuget\PortableFCSLib.nuspec"</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
